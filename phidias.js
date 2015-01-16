@@ -10,7 +10,7 @@
 					width = element.getAttribute('width'),
 					height = element.getAttribute('height');
 				if (width && height)
-					element.style.height = element.clientWidth * width / height + 'px';
+					element.style.height = element.clientWidth * height / width + 'px';
 			}
 		})
 	}
