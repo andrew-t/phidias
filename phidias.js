@@ -3,13 +3,15 @@
 	window.addEventListener('resize', resize);
 
 	function resize() {
-		var imgs = document.getElementsByTagName('img');
-		for (var i = 0; i < imgs.length; ++i) {
-			var img = imgs[i]
-				width = img.getAttribute('width'),
-				height = img.getAttribute('height');
-			if (width && height)
-				img.style.height = img.clientWidth * width / height + 'px';
-		}
+		['img', 'iframe'].forEach(function(tagName) {
+			var elements = document.getElementsByTagName(tagName);
+			for (var i = 0; i < elements.length; ++i) {
+				var element = elements[i],
+					width = element.getAttribute('width'),
+					height = element.getAttribute('height');
+				if (width && height)
+					element.style.height = element.clientWidth * width / height + 'px';
+			}
+		})
 	}
 })();
